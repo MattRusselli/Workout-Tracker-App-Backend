@@ -70,6 +70,10 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+]
+
 ROOT_URLCONF = 'workout_django.urls'
 
 TEMPLATES = [

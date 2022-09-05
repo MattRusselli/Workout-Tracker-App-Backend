@@ -7,10 +7,10 @@ User = get_user_model()
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True),
-    schedules = serializers.HyperlinkedRelatedField(
-        view_name='schedule_detail',
-        many=True,
-        read_only=True)
+    # schedules = serializers.HyperlinkedRelatedField(
+    #     view_name='schedule_detail',
+    #     many=True,
+    #     read_only=True)
 
     def create(self, validated_data):
         """
@@ -21,16 +21,13 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(
             email=validated_data['email'],
             username=validated_data['username'],
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name'],
             password=validated_data['password'],
         )
         return user
 
     class Meta:
         model = User
-        fields = ('id', 'email', 'username', 'first_name',
-                  'last_name', 'password', 'schedules')
+        fields = ('id', 'email', 'username', 'password')
 
 
 class ScheduleSerializer(serializers.HyperlinkedModelSerializer):
