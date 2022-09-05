@@ -14,4 +14,5 @@ urlpatterns = [
     path('exercises/', views.ExerciseList.as_view(), name='exercise_list'),
     path('exercises/<int:pk>', views.ExerciseDetail.as_view(),
          name='exercise_detail'),
+    path("api/signup/", views.CreateUserView.as_view()),
 ]
