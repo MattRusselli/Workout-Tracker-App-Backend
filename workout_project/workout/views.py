@@ -2,8 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics, permissions
 from rest_framework.generics import CreateAPIView
 from django.contrib.auth import get_user_model
-from .serializers import UserSerializer, ScheduleSerializer, DaySerializer, ExerciseSerializer
-from .models import User, Schedule, Day, Exercise
+from .serializers import UserSerializer, ScheduleSerializer, DaySerializer, ExerciseSerializer, User
+from .models import Schedule, Day, Exercise
 
 # Create your views here.
 
@@ -12,7 +12,7 @@ class CreateUserView(CreateAPIView):
 
     model = get_user_model()
     permission_classes = [
-        permissions.AllowAny,  # Unauthenticated users must be able to sign up
+        permissions.AllowAny  # Unauthenticated users must be able to sign up
     ]
     serializer_class = UserSerializer
 

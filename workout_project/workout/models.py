@@ -1,16 +1,18 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 # Create your models here.
 
 
-class User(models.Model):
-    """user model"""
-    email = models.EmailField(max_length=255, unique=True)
-    username = models.CharField(max_length=20, unique=True)
-    password = models.CharField(max_length=50)
+# class User(AbstractUser):
+#     """user model"""
+#     email = models.EmailField(max_length=255, unique=True)
+#     username = models.CharField(max_length=20, unique=True)
+#     password = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.first_name
+#     def __str__(self):
+#         return self.email
 
 
 class Schedule(models.Model):
